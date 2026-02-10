@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laaame - Slipping Jimmy's Run</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="Assets/Sprites/jimmy.png" type="image/x-icon">
+</head>
+<body>
+
+    <!-- ===== LOADING SCREEN ===== -->
+    <div id="loading-screen" class="screen active">
+        <div class="loading-container">
+            <h1 class="loading-title">LAAAME</h1>
+            <div class="loading-bar-outer">
+                <div id="loading-bar-inner" class="loading-bar-inner"></div>
+            </div>
+            <p id="loading-text" class="loading-text">Loading assets...</p>
+            <p class="loading-sub">Slipping Jimmy is getting ready...</p>
+        </div>
+    </div>
+
+    <!-- ===== DISCLAIMER SCREEN ===== -->
+    <div id="disclaimer-screen" class="screen">
+        <div class="disclaimer-container">
+            <h2 class="disclaimer-title">⚖️ Disclaimer</h2>
+            <div class="disclaimer-text-box">
+                <p>This game is a <strong>fan-made project</strong> created purely for fun and educational purposes.</p>
+                <p>I do <strong>not own</strong> any of the music, sound effects, or referenced intellectual property used in this game.</p>
+                <p>All music and audio assets belong to their respective owners and are used here in a non-commercial, personal project context.</p>
+                <p>Character references and themes are used as parody/homage and no copyright infringement is intended.</p>
+                <p class="disclaimer-highlight">🎮 This game is not for sale or distribution. Just vibes.</p>
+            </div>
+            <button id="btn-accept-disclaimer" class="menu-btn glow-btn">I Understand — Let's Play!</button>
+        </div>
+    </div>
+
+    <!-- ===== MAIN MENU SCREEN ===== -->
+    <div id="menu-screen" class="screen">
+        <div class="menu-container">
+            <h1 class="game-title">LAAAME</h1>
+            <p class="subtitle">Slipping Jimmy's Endless Run</p>
+
+            <!-- Toggles Row -->
+            <div class="toggles-container">
+                <!-- Day/Night Toggle -->
+                <div class="toggle-row">
+                    <label class="toggle-label">
+                        <span id="theme-icon">🌙</span>
+                        <input type="checkbox" id="toggle-daynight" class="toggle-checkbox">
+                        <span class="toggle-slider"></span>
+                        <span id="theme-text">Night</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Control Mode Selector -->
+            <div class="control-mode-selector">
+                <p class="control-mode-label">Control Mode:</p>
+                <div class="control-mode-btns">
+                    <button id="btn-mode-keyboard" class="mode-btn mode-active" data-mode="keyboard">
+                        <span class="mode-icon">⌨️</span>
+                        <span class="mode-name">Keyboard</span>
+                    </button>
+                    <button id="btn-mode-voice" class="mode-btn" data-mode="voice">
+                        <span class="mode-icon">🎤</span>
+                        <span class="mode-name">Voice</span>
+                    </button>
+                </div>
+                <p id="mic-privacy-notice" class="mic-privacy hidden">
+                    🔒 We don't store your voice or mic data. Used only for in-game controls.
+                </p>
+            </div>
+
+            <div class="menu-buttons">
+                <button id="btn-easy" class="menu-btn" data-difficulty="easy">
+                    <span class="btn-label">Easy</span>
+                    <span class="btn-score">Target: 333</span>
+                </button>
+                <button id="btn-medium" class="menu-btn locked" data-difficulty="medium">
+                    <span class="btn-label">Medium</span>
+                    <span class="btn-score">Target: 3,333</span>
+                    <span class="lock-icon">🔒</span>
+                </button>
+                <button id="btn-hard" class="menu-btn locked" data-difficulty="hard">
+                    <span class="btn-label">Hard</span>
+                    <span class="btn-score">Target: 33,333</span>
+                    <span class="lock-icon">🔒</span>
+                </button>
+                <button id="btn-extreme" class="menu-btn locked" data-difficulty="extreme">
+                    <span class="btn-label">☠️ Extreme</span>
+                    <span class="btn-score">Target: 99,999</span>
+                    <span class="lock-icon">🔒</span>
+                </button>
+            </div>
+            <p id="controls-hint" class="controls-hint">⌨️ ↑ / ↓ to move &bull; SPACE to dash &bull; ESC to pause</p>
+        </div>
+
+        <!-- Mute Button (floats top-right) -->
+        <button id="btn-mute" class="mute-btn" title="Toggle Sound">
+            <span id="mute-icon">🔊</span>
+        </button>
+    </div>
+
+    <!-- ===== GAME SCREEN ===== -->
+    <div id="game-screen" class="screen">
+        <canvas id="game-canvas"></canvas>
+        <div id="game-hud">
+            <div id="hud-score">Score: 0</div>
+            <div id="hud-target">Target: 333</div>
+            <div id="hud-difficulty">EASY</div>
+            <div id="hud-dash" class="dash-ready">DASH [SPACE]</div>
+        </div>
+        <!-- Jimmy's Speech Bubble -->
+        <div id="jimmy-speech" class="jimmy-speech hidden">
+            <span id="jimmy-speech-text"></span>
+        </div>
+        <!-- Voice Meter (only visible in mic mode) -->
+        <div id="voice-meter" class="voice-meter hidden">
+            <div class="voice-meter-label">🎤 MIC</div>
+            <div class="voice-meter-bar-outer">
+                <div id="voice-meter-fill" class="voice-meter-fill"></div>
+            </div>
+            <div class="voice-meter-zones">
+                <span>⬇ Quiet</span>
+                <span>● Mid</span>
+                <span>⬆ Loud</span>
+            </div>
+        </div>
+        <!-- In-game mute -->
+        <button id="btn-mute-game" class="mute-btn mute-btn-game" title="Toggle Sound">
+            <span id="mute-icon-game">🔊</span>
+        </button>
+    </div>
+
+    <!-- ===== PAUSE SCREEN ===== -->
+    <div id="pause-screen" class="screen overlay">
+        <div class="overlay-box">
+            <h2>⏸️ PAUSED</h2>
+            <button id="btn-resume" class="menu-btn">Resume</button>
+            <button id="btn-quit" class="menu-btn">Quit to Menu</button>
+        </div>
+    </div>
+
+    <!-- ===== GAME OVER SCREEN ===== -->
+    <div id="gameover-screen" class="screen overlay">
+        <div class="overlay-box gameover-box">
+            <h2>💀 GAME OVER</h2>
+            <p id="gameover-score">Score: 0</p>
+            <p id="gameover-highscore">Best: 0</p>
+            <button id="btn-retry" class="menu-btn">Retry</button>
+            <button id="btn-menu" class="menu-btn">Menu</button>
+        </div>
+    </div>
+
+    <!-- ===== LEVEL COMPLETE SCREEN ===== -->
+    <div id="win-screen" class="screen overlay">
+        <div class="overlay-box win-box">
+            <h2>S'ALL GOOD, MAN!</h2>
+            <p class="win-subtitle">✨ Level Complete! ✨</p>
+            <p id="win-score">Score: 0</p>
+            <p id="win-unlock" class="unlock-text"></p>
+            <button id="btn-next" class="menu-btn glow-btn">Continue</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
