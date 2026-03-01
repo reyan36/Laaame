@@ -1,10 +1,10 @@
-# 🎮 LAAAME
+# LAAAME
 
 A 2D endless runner browser game starring **Slipping Jimmy**, who must dodge obstacles while sprinting through the streets. Built with pure HTML5 Canvas, CSS, and vanilla JavaScript — no frameworks, no dependencies.
 
 ---
 
-## 🕹️ How to Play
+## How to Play
 
 Open `index.html` in a modern browser (Chrome recommended) and start running.
 
@@ -18,7 +18,7 @@ Open `index.html` in a modern browser (Chrome recommended) and start running.
 | `M` | Mute / Unmute |
 | `Esc` | Pause / Resume |
 
-### 🎙️ Voice Mode
+### Voice Mode
 
 | Volume | Action |
 |--------|--------|
@@ -30,7 +30,7 @@ Voice mode uses your microphone for movement — select it in the menu before st
 
 ---
 
-## 📈 Difficulty Levels
+## Difficulty Levels
 
 | Level | Target Score | Unlocked By |
 |-------|-------------|-------------|
@@ -43,7 +43,7 @@ Each level gets progressively faster with more frequent and dangerous obstacles.
 
 ---
 
-## 🚧 Obstacles
+## Obstacles
 
 - **📁 Case Files** — Stacks of legal documents sliding across the ground
 - **🔨 Hammer (Gavel)** — Fast-moving judge's gavel
@@ -51,31 +51,31 @@ Each level gets progressively faster with more frequent and dangerous obstacles.
 
 ---
 
-## ✨ Features
+## Features
 
 - **Two Control Modes** — Keyboard or Voice (microphone-based) with a mode selector in the menu
 - **Dash Mechanic** — Press Space for a brief burst of invincibility with afterimage trail effects
-- **📱 Phone Collectible** — Rare phone pickups spawn in lanes. Grab one for +500 bonus points and a *"Better Call Saul!"* animation with signal wave effects
+- **Phone Collectible** — Rare phone pickups spawn in lanes. Grab one for +500 bonus points and a *"Better Call Saul!"* animation with signal wave effects
 - **Screen Shake** — Canvas shakes on death for impact feedback
-- **🌗 Day/Night Theme** — Toggle between a dark city night and a bright daytime look
-- **🎵 Music & SFX** — Menu song, two in-game tracks (auto-rotate), and per-obstacle collision sounds. Mute/unmute pauses and resumes without restarting
-- **💬 Context-Aware Catchphrases** — Jimmy says different things depending on performance: confident when doing well, frustrated after multiple deaths, and milestone callouts at score thresholds
+- **Day/Night Theme** — Toggle between a dark city night and a bright daytime look
+- **Music & SFX** — Menu song, two in-game tracks (auto-rotate), and per-obstacle collision sounds. Mute/unmute pauses and resumes without restarting
+- **Context-Aware Catchphrases** — Jimmy says different things depending on performance: confident when doing well, frustrated after multiple deaths, and milestone callouts at score thresholds
 - **Speech Bubbles** — Follow Jimmy as he moves between lanes
-- **🎆 Particle System** — Dust trails, hit particles, dash burst, confetti on level completion, and sparkle effects on phone pickup
+- **Particle System** — Dust trails, hit particles, dash burst, confetti on level completion, and sparkle effects on phone pickup
 - **Parallax Scrolling** — Multi-layer seamless city background with buildings and windows
 - **Progress Bar** — Visual progress toward the target score at the bottom of the screen
-- **🏆 High Scores** — Per-difficulty high scores saved to localStorage
+- **High Scores** — Per-difficulty high scores saved to localStorage
 - **Loading Screen** — Preloads all audio and sprite assets with a progress bar
 
 ---
 
-## 🥚 Easter Egg
+## Easter Egg
 
 Type `saulgoodman` during gameplay to instantly win the level. Works in both keyboard and voice modes.
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 Laaame/
@@ -97,7 +97,7 @@ Laaame/
 
 ---
 
-## 🔧 Technical Details
+## Technical Details
 
 - **Rendering** — HTML5 Canvas 2D with `requestAnimationFrame` game loop
 - **Audio** — HTML5 Audio elements with preloading, clone-based SFX for overlapping sounds
@@ -107,17 +107,17 @@ Laaame/
 
 ---
 
-## 🌐 Browser Support
+## Browser Support
 
 Chrome (recommended), Edge, Firefox. Voice mode requires microphone permissions and works best in Chrome.
 
 
-## 👨‍💻 Developer
+## Developer
 
 [**Reyan Arshad**](https://www.linkedin.com/in/reyan36)
 
 
-## 📜 License
+## License
 
 This project is licensed under the [MIT License](LICENSE).
 
